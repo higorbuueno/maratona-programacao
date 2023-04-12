@@ -1,0 +1,100 @@
+.meu-card {
+  height: 60vh;
+}
+
+.background-image {
+  background: no-repeat center center fixed;
+  background-size: cover;
+  display: block;
+  left: -5px;
+  top: -5px;
+  bottom: -5px;
+  position: fixed;
+  right: -5px;
+  z-index: 0;
+  margin: -5px;
+
+  transition: 0.3s;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.background-image:hover {
+  transition: 0.3s;
+  -webkit-filter: unset;
+  -moz-filter: unset;
+  -o-filter: unset;
+  -ms-filter: unset;
+  filter: unset;
+}
+
+.logo {
+    width: 100%;
+}
+
+.card {
+  background-color: #0e395e;
+  transition: 0.3s;
+  /* -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px); */
+}
+
+.card:hover {
+  transition: 0.3s;
+  -webkit-filter: unset;
+  -moz-filter: unset;
+  -o-filter: unset;
+  -ms-filter: unset;
+  filter: unset;
+}
+
+.meu-input {
+  color: white;
+  width: 350px;
+  background-color: transparent;
+  border: none;
+  border-bottom: rgb(196, 196, 196) solid 0.5px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.meu-input:focus {
+  transition: 1s;
+  border-bottom: white solid 2px;
+  box-shadow: 0 10px 10px -9px white;
+}
+
+.meu-textarea {
+    color: white;
+    width: 350px;
+    background-color: rgba(110, 110, 110, 0.582);
+    border: none;
+    border-bottom: rgb(196, 196, 196) solid 0.5px;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+  
+  .meu-textarea:focus {
+    transition: 1s;
+    border-bottom: white solid 2px;
+    box-shadow: 0 10px 10px -9px white;
+  }
+
+
+.icone {
+  font-size: 1.6rem;
+}
+
+.texto-branco {
+  transition: 0.5s;
+  color: white;
+}
