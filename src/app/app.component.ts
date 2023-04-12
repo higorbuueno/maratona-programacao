@@ -74,7 +74,7 @@ export class AppComponent {
 
       // Preciso fazer a validação do tamanho do array pra ele não bugar quando for buscar o tamanho limito (36) + a chave.
       // Caso ele esteja dentro do range, eu subtraio o valor da própria chave mesmo;
-      if (posicaoDoMeuCaracter - this.chaveCesar < this.tamanhoDoAlfanumericoCesar) {
+      if (posicaoDoMeuCaracter - this.chaveCesar > 0) {
         arrayResultadoDescripto.push(this.alfanumericoCesar[posicaoDoMeuCaracter - this.chaveCesar]);
       } else {
 
