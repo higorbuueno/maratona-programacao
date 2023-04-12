@@ -62,6 +62,29 @@ export class AppComponent {
 
   onChangeResultadoCesar() {
     //  Descriptografar o cesar!
+    if (this.chaveCesar > this.tamanhoDoAlfanumericoCesar) {
+      this.chaveCesar = this.tamanhoDoAlfanumericoCesar;
+    }
+
+    let arrayResultadoDescripto = [] as string[];
+    this.resultadoCesar.split('').forEach((caractere) => {
+
+      // Variáveis para melhorar visualização de código
+      const posicaoDoMeuCaracter = this.alfanumericoCesar.findIndex(alfanumerico => alfanumerico === caractere.toUpperCase());
+
+      // Preciso fazer a validação do tamanho do array pra ele não bugar quando for buscar o tamanho limito (36) + a chave.
+      // Caso ele esteja dentro do range, eu subtraio o valor da própria chave mesmo;
+      if (posicaoDoMeuCaracter - this.chaveCesar < this.tamanhoDoAlfanumericoCesar) {
+        arrayResultadoDescripto.push(this.alfanumericoCesar[posicaoDoMeuCaracter - this.chaveCesar]);
+      } else {
+
+        // Caso não estiver eu volto pro começo do array continuando a contagem (limito a chave sendo o tamanho da string, para evitar loop)
+        const novaPosicaoDoCaracter = (posicaoDoMeuCaracter - this.chaveCesar) + this.tamanhoDoAlfanumericoCesar;
+        arrayResultadoDescripto.push(this.alfanumericoCesar[novaPosicaoDoCaracter]);
+      }
+    });
+
+    this.fraseCesar = arrayResultadoDescripto.join('');
   }
 
   onChangeFraseVigenere() {
