@@ -35,9 +35,7 @@ export class AppComponent {
   trilhoFocus: boolean = false;
 
   onChangeFraseCesar() {
-    if (this.chaveCesar > this.tamanhoDoAlfanumericoCesar) {
-      this.chaveCesar = this.tamanhoDoAlfanumericoCesar;
-    }
+    this.verificarChaveCesar();
 
     let arrayResultado = [] as string[];
     this.fraseCesar.split('').forEach((caractere) => {
@@ -62,9 +60,7 @@ export class AppComponent {
 
   onChangeResultadoCesar() {
     //  Descriptografar o cesar!
-    if (this.chaveCesar > this.tamanhoDoAlfanumericoCesar) {
-      this.chaveCesar = this.tamanhoDoAlfanumericoCesar;
-    }
+    this.verificarChaveCesar();
 
     let arrayResultadoDescripto = [] as string[];
     this.resultadoCesar.split('').forEach((caractere) => {
@@ -87,6 +83,16 @@ export class AppComponent {
     this.fraseCesar = arrayResultadoDescripto.join('');
   }
 
+  verificarChaveCesar() {
+    if (this.chaveCesar > this.tamanhoDoAlfanumericoCesar) {
+      this.chaveCesar = this.tamanhoDoAlfanumericoCesar;
+    }
+
+    if (this.chaveCesar < 0) {
+      this.chaveCesar = 0;
+    }
+  }
+
   onChangeFraseVigenere() {
     // TODO: FAZER A FUNÇÃO E DEFINIR A VARIÁVEL resultadoVigenere com o codificado.
     this.resultadoVigenere = this.fraseVigenere
@@ -101,7 +107,7 @@ export class AppComponent {
     this.resultadoTrilho = this.fraseTrilho
   }
 
-  onChangeResultadoTrilho(){
+  onChangeResultadoTrilho() {
     //  Descriptografar o Trilho!
 
   }

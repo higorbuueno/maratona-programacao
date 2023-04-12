@@ -20,12 +20,12 @@
             <div class="d-flex justify-content-center mb-5">
               <img src="../assets/img/Caesar.png" alt="cesar-perfil" width="250px" height="310px">
             </div>
-            <label class="text-white ms-2">Cifra de Cesar</label>
+            <label class="text-white ms-2  mb-2">Cifra de Cesar</label>
             <input
               type="text"
               (focus)="this.cesarFocus = true"
               (blur)="this.cesarFocus = false"
-              class="meu-input form-control"
+              class="meu-input form-control mb-2"
               [(ngModel)]="fraseCesar"
               placeholder="Frase"
               (input)="this.onChangeFraseCesar()"
@@ -36,9 +36,10 @@
               <input
                 type="number"
                 [max]="this.tamanhoDoAlfanumericoCesar"
+                [min]="0"
                 (focus)="this.cesarFocus = true"
                 (blur)="this.cesarFocus = false"
-                class="meu-input chave-cesar form-control"
+                class="meu-input chave-cesar form-control mb-2"
                 [(ngModel)]="chaveCesar"
                 placeholder="Chave"
                 (input)="this.onChangeFraseCesar()"
@@ -47,16 +48,14 @@
             </div>
 
             <div>
-              <label class="text-white ms-2 mt-3">Resultado</label>
               <input
                 type="text"
                 (focus)="this.cesarFocus = true"
                 (blur)="this.cesarFocus = false"
-                class="meu-input form-control"
+                class="meu-input form-control mb-2"
                 [(ngModel)]="resultadoCesar"
-                placeholder="Frase"
+                placeholder="Resultado"
                 (input)="this.onChangeResultadoCesar()"
-                aria-label="Usuário"
               />
             </div>
           </div>
@@ -66,12 +65,12 @@
             <div class="d-flex justify-content-center mb-5">
               <img src="../assets/img/Vigenere.png" alt="vigenere-perfil" width="250px" height="310px">
             </div>
-            <label class="text-white ms-2">Cifra de Vigenere</label>
+            <label class="text-white ms-2  mb-2">Cifra de Vigenere</label>
             <input
               type="text"
               (focus)="this.vigenereFocus = true"
               (blur)="this.vigenereFocus = false"
-              class="meu-input form-control"
+              class="meu-input form-control mb-2"
               [(ngModel)]="fraseVigenere"
               placeholder="Frase"
               (input)="this.onChangeFraseVigenere()"
@@ -84,7 +83,7 @@
                 [maxlength]="this.tamanhoDaFraseVigenere"
                 (focus)="this.vigenereFocus = true"
                 (blur)="this.vigenereFocus = false"
-                class="meu-input form-control"
+                class="meu-input form-control mb-2"
                 [(ngModel)]="chaveVigenere"
                 placeholder="Chave"
                 (input)="this.onChangeFraseVigenere()"
@@ -93,16 +92,14 @@
             </div>
 
             <div>
-              <label class="text-white ms-2 mt-3">Resultado</label>
               <input
                 type="text"
                 (focus)="this.cesarFocus = true"
                 (blur)="this.cesarFocus = false"
-                class="meu-input form-control"
+                class="meu-input form-control mb-2"
                 [(ngModel)]="resultadoVigenere"
-                placeholder="Frase"
+                placeholder="Resultado"
                 (input)="this.onChangeResultadoVigenere()"
-                aria-label="Usuário"
               />
             </div>
           </div>
@@ -112,12 +109,12 @@
             <div class="d-flex justify-content-center mb-5">
               <img src="../assets/img/cercatrilho2.png" alt="cerca-trilho" width="250px" height="310px">
             </div>
-            <label class="text-white ms-2">Cerca de Trilho</label>
+            <label class="text-white ms-2  mb-2">Cerca de Trilho</label>
             <input
               type="text"
               (focus)="this.trilhoFocus = true"
               (blur)="this.trilhoFocus = false"
-              class="meu-input form-control"
+              class="meu-input form-control mb-2"
               [(ngModel)]="fraseTrilho"
               placeholder="Frase"
               (input)="this.onChangeFraseTrilho()"
@@ -128,7 +125,7 @@
                 type="text"
                 (focus)="this.trilhoFocus = true"
                 (blur)="this.trilhoFocus = false"
-                class="meu-input form-control"
+                class="meu-input form-control mb-2"
                 [(ngModel)]="chaveTrilho"
                 placeholder="Chave"
                 (input)="this.onChangeFraseTrilho()"
@@ -137,16 +134,14 @@
             </div>
 
             <div>
-              <label class="text-white ms-2 mt-3">Resultado</label>
               <input
                 type="text"
                 (focus)="this.trilhoFocus = true"
                 (blur)="this.trilhoFocus = false"
-                class="meu-input form-control"
+                class="meu-input form-control mb-2"
                 [(ngModel)]="resultadoTrilho"
-                placeholder="Frase"
+                placeholder="Resultado"
                 (input)="this.onChangeResultadoTrilho()"
-                aria-label="Usuário"
               />
             </div>
           </div>

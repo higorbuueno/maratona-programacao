@@ -43,8 +43,9 @@
 }
 
 .card {
-  background-color: #0e395e;
+  background-color: #0e395eec;
   transition: 0.3s;
+  border-radius: 15px;
   /* -webkit-filter: blur(3px);
     -moz-filter: blur(3px);
     -o-filter: blur(3px);
@@ -64,17 +65,21 @@
 .meu-input {
   color: white;
   width: 500px;
-  background-color: transparent;
+  background-color: rgba(97, 122, 167, 0.336);
   border: none;
-  border-bottom: rgb(196, 196, 196) solid 0.5px;
-  border-radius: 0px;
+  border: rgb(97, 121, 167) solid 0.5px;
+  border-radius: 10px;
   box-shadow: none;
 }
 
 .meu-input:focus {
   transition: 1s;
   border-bottom: white solid 1px;
-  box-shadow: 0 10px 9px -9px white;
+  box-shadow: 0 0px 9px 1px white;
+}
+
+.meu-input::placeholder {
+color: rgba(146, 165, 209, 0.829);
 }
 
 .chave-cesar {
