@@ -1,38 +1,145 @@
 <div class="maratona-home-wrapper">
-  <div class="login-wrapper">
-    <div class="background-image">
-      <img src="../../../assets/bg/bg-login.jpg" width="100%" height="100%" />
-    </div>
-    <div class="meu-card d-flex justify-content-center align-items-center">
-      <div class="card">
-        <div class="logo">
-          <div class="card-body text-center">
-            <img src="../../../assets/logo/logo-letra-branca.PNG" width="400px" height="100%" />
-          </div>
+  <div class="background-image">
+    <img src="../../../assets/bg/bg-login.jpg" width="100%" height="100%" />
+  </div>
+  <div class="meu-card d-flex justify-content-center align-items-center">
+    <div class="card">
+      <div class="logo">
+        <div class="card-body text-center">
+          <img
+            src="../../../assets/logo/logo-letra-branca.PNG"
+            width="400px"
+            height="100%"
+          />
         </div>
+      </div>
 
-        <div class="card-body d-flex justify-content-center">
-          <div class="d-flex mb-3">
-            <div>
-              <input type="text" (focus)="this.cesarFocus = true" (blur)="this.cesarFocus = false"
-              class="meu-input form-control" [(ngModel)]="cifraCesar" placeholder="Cifra de Cesar" (input)="this.onChangeCifraCesar()"
-              aria-label="Usuário">
-              <input type="text" (focus)="this.cesarFocus = true" (blur)="this.cesarFocus = false"
-              class="meu-input form-control" [(ngModel)]="cifraCesar" placeholder="Cifra de Cesar" (input)="this.onChangeCifraCesar()"
-              aria-label="Usuário">
-              <textarea class="meu-textarea mt-5" rows="10" [value]="resultadoCesar"></textarea>
+      <div class="card-body d-flex justify-content-center">
+        <div class="d-flex mb-3 me-5">
+          <div>
+            <label class="text-white ms-2">Cifra de Cesar</label>
+            <input
+              type="text"
+              (focus)="this.cesarFocus = true"
+              (blur)="this.cesarFocus = false"
+              class="meu-input form-control"
+              [(ngModel)]="fraseCesar"
+              placeholder="Frase"
+              (input)="this.onChangeFraseCesar()"
+              aria-label="Usuário"
+            />
+
+            <div class="d-flex justify-content-end">
+              <input
+                type="number"
+                [max]="this.tamanhoDoAlfanumericoCesar"
+                (focus)="this.cesarFocus = true"
+                (blur)="this.cesarFocus = false"
+                class="meu-input chave-cesar form-control"
+                [(ngModel)]="chaveCesar"
+                placeholder="Chave"
+                (input)="this.onChangeFraseCesar()"
+                aria-label="Usuário"
+              />
             </div>
 
+            <div>
+              <label class="text-white ms-2 mt-3">Resultado</label>
+              <input
+                type="text"
+                (focus)="this.cesarFocus = true"
+                (blur)="this.cesarFocus = false"
+                class="meu-input form-control"
+                [(ngModel)]="resultadoCesar"
+                placeholder="Frase"
+                (input)="this.onChangeResultadoCesar()"
+                aria-label="Usuário"
+              />
+            </div>
           </div>
-          <div class="d-flex mb-3">
-            <span class="me-2 texto-branco"><i class="icone bi bi-lock"></i></span>
-            <input type="text" (focus)="this.vigenereFocus = true" (blur)="this.vigenereFocus = false"
-              class="meu-input form-control" [(ngModel)]="cifraVigenere" placeholder="Cifra de Vigenere">
+        </div>
+        <div class="d-flex mb-3 me-5">
+          <div>
+            <label class="text-white ms-2">Cifra de Vigenere</label>
+            <input
+              type="text"
+              (focus)="this.vigenereFocus = true"
+              (blur)="this.vigenereFocus = false"
+              class="meu-input form-control"
+              [(ngModel)]="fraseVigenere"
+              placeholder="Frase"
+              (input)="this.onChangeFraseVigenere()"
+              aria-label="Usuário"
+            />
+
+            <div class="d-flex justify-content-end">
+              <input
+                type="text"
+                [maxlength]="this.tamanhoDaFraseVigenere"
+                (focus)="this.vigenereFocus = true"
+                (blur)="this.vigenereFocus = false"
+                class="meu-input form-control"
+                [(ngModel)]="chaveVigenere"
+                placeholder="Chave"
+                (input)="this.onChangeFraseVigenere()"
+                aria-label="Usuário"
+              />
+            </div>
+
+            <div>
+              <label class="text-white ms-2 mt-3">Resultado</label>
+              <input
+                type="text"
+                (focus)="this.cesarFocus = true"
+                (blur)="this.cesarFocus = false"
+                class="meu-input form-control"
+                [(ngModel)]="resultadoVigenere"
+                placeholder="Frase"
+                (input)="this.onChangeResultadoVigenere()"
+                aria-label="Usuário"
+              />
+            </div>
           </div>
-          <div class="d-flex mb-3">
-            <span class="me-2 texto-branco"><i class="icone bi bi-lock"></i></span>
-            <input type="text" (focus)="this.trilhoFocus = true" (blur)="this.trilhoFocus = false"
-              class="meu-input form-control" [(ngModel)]="cercaTrilho" placeholder="Cerca de Trilho">
+        </div>
+        <div class="d-flex mb-3">
+          <div>
+            <label class="text-white ms-2">Cerca de Trilho</label>
+            <input
+              type="text"
+              (focus)="this.trilhoFocus = true"
+              (blur)="this.trilhoFocus = false"
+              class="meu-input form-control"
+              [(ngModel)]="fraseTrilho"
+              placeholder="Frase"
+              (input)="this.onChangeFraseTrilho()"
+            />
+
+            <div class="d-flex justify-content-end">
+              <input
+                type="text"
+                (focus)="this.trilhoFocus = true"
+                (blur)="this.trilhoFocus = false"
+                class="meu-input form-control"
+                [(ngModel)]="chaveTrilho"
+                placeholder="Chave"
+                (input)="this.onChangeFraseTrilho()"
+                aria-label="Usuário"
+              />
+            </div>
+
+            <div>
+              <label class="text-white ms-2 mt-3">Resultado</label>
+              <input
+                type="text"
+                (focus)="this.trilhoFocus = true"
+                (blur)="this.trilhoFocus = false"
+                class="meu-input form-control"
+                [(ngModel)]="resultadoTrilho"
+                placeholder="Frase"
+                (input)="this.onChangeResultadoTrilho()"
+                aria-label="Usuário"
+              />
+            </div>
           </div>
         </div>
       </div>

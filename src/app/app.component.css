@@ -1,5 +1,9 @@
+.maratona-home-wrapper, input {
+  font-size: 25px !important;
+}
+
 .meu-card {
-  height: 60vh;
+  height: 90vh;
 }
 
 .background-image {
@@ -35,7 +39,7 @@
 }
 
 .logo {
-    width: 100%;
+  width: 100%;
 }
 
 .card {
@@ -59,7 +63,7 @@
 
 .meu-input {
   color: white;
-  width: 350px;
+  width: 500px;
   background-color: transparent;
   border: none;
   border-bottom: rgb(196, 196, 196) solid 0.5px;
@@ -69,26 +73,29 @@
 
 .meu-input:focus {
   transition: 1s;
-  border-bottom: white solid 2px;
-  box-shadow: 0 10px 10px -9px white;
+  border-bottom: white solid 1px;
+  box-shadow: 0 10px 9px -9px white;
+}
+
+.chave-cesar {
+  width: 120px;
 }
 
 .meu-textarea {
-    color: white;
-    width: 350px;
-    background-color: rgba(110, 110, 110, 0.582);
-    border: none;
-    border-bottom: rgb(196, 196, 196) solid 0.5px;
-    border-radius: 0px;
-    box-shadow: none;
-  }
-  
-  .meu-textarea:focus {
-    transition: 1s;
-    border-bottom: white solid 2px;
-    box-shadow: 0 10px 10px -9px white;
-  }
+  color: white;
+  width: 350px;
+  background-color: rgba(110, 110, 110, 0.582);
+  border: none;
+  border-bottom: rgb(196, 196, 196) solid 0.5px;
+  border-radius: 0px;
+  box-shadow: none;
+}
 
+.meu-textarea:focus {
+  transition: 1s;
+  border-bottom: white solid 2px;
+  box-shadow: 0 10px 10px -9px white;
+}
 
 .icone {
   font-size: 1.6rem;
