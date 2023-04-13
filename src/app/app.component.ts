@@ -180,7 +180,6 @@ export class AppComponent implements OnInit {
       const indexDaLetraDoResultadoAtual = this.alfabetoVigenere.findIndex(letra => letra === resultadoVignereEmArray[i]);
 
       const indexDaLetraDoCodigoAtual = this.alfabetoVigenere.findIndex(letra => letra === codigoPreenchidoAteOFinal[i]);
-      console.log(indexDaLetraDoCodigoAtual);
 
       const indexDaLetraNoAlfabeto = indexDaLetraDoResultadoAtual - indexDaLetraDoCodigoAtual;
       
