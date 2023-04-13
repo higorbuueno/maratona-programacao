@@ -101,47 +101,55 @@ export class AppComponent implements OnInit {
     // PALAVRA: HIGORBUENO -> FEITO
     // CHAVE: ABC -> FEITO
     // PALAVRA C/ CHAVE: ABCABCABCAB -> FEITO
+    if (this.chaveVigenere) {
 
-    const fraseVigenereEmArray = this.fraseVigenere.split('');
-    const chaveVigenereEmArray = this.chaveVigenere.split('');
-    let codigoPreenchidoAteOFinal: string[] = [];
+      const fraseVigenereEmArray = this.fraseVigenere.split('');
+      const chaveVigenereEmArray = this.chaveVigenere.split('');
+      let codigoPreenchidoAteOFinal: string[] = [];
 
-    let indexParaMapeamento = 0;
+      let indexParaMapeamento = 0;
 
-    fraseVigenereEmArray.forEach(l => {
-      // Verifico se estou na ultima posição da minha chave, se estiver, volta pro começo
-      if (indexParaMapeamento > chaveVigenereEmArray.length - 1) {
-        indexParaMapeamento = 0;
+      fraseVigenereEmArray.forEach(l => {
+        // Verifico se estou na ultima posição da minha chave, se estiver, volta pro começo
+        if (indexParaMapeamento > chaveVigenereEmArray.length - 1) {
+          indexParaMapeamento = 0;
+        }
+
+        // Preencho meu código preenchido até o final de novo com a letra da chave
+        codigoPreenchidoAteOFinal.push(chaveVigenereEmArray[indexParaMapeamento]?.toUpperCase());
+        indexParaMapeamento++;
+      });
+
+
+      /*
+        BEBE -> PALAVRA
+        CIER -> CHAVE
+        -
+        BEBE -> 1 4 1 4
+        CIER -> 2 8 4 17
+            -> 3 12 5 21 -> DMFV
+  
+        DMFV -> 3 12 5 21
+        CIER -> 2 8 4 17
+        RESUL -> 1 4 1 4
+      */
+
+      let hashFinalEmArray: string[] = [];
+      for (const i in fraseVigenereEmArray) {
+        let indexDaLetraDoCodigoAtual = this.alfabetoVigenere.findIndex(letra => letra === codigoPreenchidoAteOFinal[i]);
+        let indexDaLetraDaFraseAtual = this.alfabetoVigenere.findIndex(letra => letra === fraseVigenereEmArray[i]);
+
+        let indexDoHash = indexDaLetraDoCodigoAtual + indexDaLetraDaFraseAtual;
+
+        if (indexDaLetraDaFraseAtual + 1 > this.tamanhoDoAlfabetoVigenere - 1 || indexDaLetraDoCodigoAtual + 1 > this.tamanhoDoAlfabetoVigenere - 1) {
+          indexDoHash -= this.tamanhoDoAlfabetoVigenere;
+        }
+
+        hashFinalEmArray.push(this.alfabetoVigenere[indexDoHash]);
       }
 
-      // Preencho meu código preenchido até o final de novo com a letra da chave
-      codigoPreenchidoAteOFinal.push(chaveVigenereEmArray[indexParaMapeamento]?.toUpperCase());
-      indexParaMapeamento++;
-    });
-
-
-    /*
-      BEBE -> PALAVRA
-      CIER -> CHAVE
-      -
-      BEBE -> 1 4 1 4
-      CIER -> 2 8 4 17
-          -> 3 12 5 21 -> DMFV
-
-      DMFV -> 3 12 5 21
-      CIER -> 2 8 4 17
-      RESUL -> 1 4 1 4
-    */
-
-    let hashFinalEmArray: string[] = [];
-    for (const i in fraseVigenereEmArray) {
-      const indexDaLetraDoCodigoAtual = this.alfabetoVigenere.findIndex(letra => letra === codigoPreenchidoAteOFinal[i]);
-      const indexDaLetraDaFraseAtual = this.alfabetoVigenere.findIndex(letra => letra === fraseVigenereEmArray[i]);
-      const indexDoHash = indexDaLetraDoCodigoAtual + indexDaLetraDaFraseAtual;
-      hashFinalEmArray.push(this.alfabetoVigenere[indexDoHash])
+      this.resultadoVigenere = hashFinalEmArray.join('');
     }
-
-    this.resultadoVigenere = hashFinalEmArray.join('');
   }
 
   onChangeResultadoVigenere() {
