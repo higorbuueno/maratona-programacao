@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   ngOnInit(): void {
-    this.preencherTabelaVigenere();
   }
 
   /**
@@ -153,7 +152,50 @@ export class AppComponent implements OnInit {
   }
 
   onChangeResultadoVigenere() {
-    //  Descriptografar o Vigenere!
+    const resultadoVignereEmArray = this.resultadoVigenere.split('');
+    const chaveVigenereEmArray = this.chaveVigenere.split('');
+    let codigoPreenchidoAteOFinal: string[] = [];
+
+    let indexParaMapeamento = 0;
+
+    resultadoVignereEmArray.forEach(l => {
+      // Verifico se estou na ultima posição da minha chave, se estiver, volta pro começo
+      if (indexParaMapeamento > chaveVigenereEmArray.length - 1) {
+        indexParaMapeamento = 0;
+      }
+
+      // Preencho meu codigoPreenchidoAteOFinal de novo com a letra da chave
+      codigoPreenchidoAteOFinal.push(chaveVigenereEmArray[indexParaMapeamento]?.toUpperCase());
+      indexParaMapeamento++;
+    });
+
+    /*
+      BEBE -> PALAVRA
+      CIER -> CHAVE
+      -
+      BEBE -> 1 4 1 4
+      CIER -> 2 8 4 17
+          -> 3 12 5 21 -> DMFV
+
+      DMFV -> 3 12 5 21
+      CIER -> 2 8 4 17
+      RESUL -> 1 4 1 4
+    */
+
+    let hashFinalEmArray: string[] = [];
+    for (const i in resultadoVignereEmArray) {
+
+      const indexDaLetraDoResultadoAtual = this.alfabetoVigenere.findIndex(letra => letra === resultadoVignereEmArray[i]);
+
+      const indexDaLetraDoCodigoAtual = this.alfabetoVigenere.findIndex(letra => letra === codigoPreenchidoAteOFinal[i]);
+      console.log(indexDaLetraDoCodigoAtual);
+
+      const indexDaLetraNoAlfabeto = indexDaLetraDoResultadoAtual - indexDaLetraDoCodigoAtual;
+      
+      hashFinalEmArray.push(this.alfabetoVigenere[indexDaLetraNoAlfabeto])
+    }
+
+    this.fraseVigenere = hashFinalEmArray.join('');
   }
 
   onChangeFraseTrilho() {
@@ -163,33 +205,9 @@ export class AppComponent implements OnInit {
 
   onChangeResultadoTrilho() {
     //  Descriptografar o Trilho!
-
+    this.fraseTrilho = this.resultadoTrilho
   }
 
-  preencherTabelaVigenere() {
-
-    for (const letraQueComecaOArray of this.alfabetoVigenere) {
-      // DENTRO DESTE FOR EU TENHO A LETRA EM QUE O ARRAY DEVE COMEÇAR
-
-      let arrayAtual: string[] = [];
-
-      this.alfabetoVigenere.forEach(letra => {
-        // Busco a ultima letra adicionada no array pra buscar a proxima letra no meu alfabeto 
-        const ultimaLetraAdicionada = arrayAtual[arrayAtual.length - 1];
-        const indexDaUltimaLetraAdicionada = this.alfabetoVigenere.findIndex(letra => ultimaLetraAdicionada === letra);
-
-        // Adiciono +1 ao index para pegar a proxima letra
-        let indexParaAdicionar: number = 0;
-        if (indexDaUltimaLetraAdicionada + 1 > this.tamanhoDoAlfabetoVigenere - 1) {
-          indexParaAdicionar = 0;
-        } else {
-          indexParaAdicionar = indexDaUltimaLetraAdicionada + 1;
-        }
-        arrayAtual.push(this.alfabetoVigenere[indexParaAdicionar]);
-      })
-      this.matrizVigenere.push(arrayAtual);
-    }
-  }
 
   get tamanhoDoAlfanumericoCesar() {
     return this.alfanumericoCesar.length;
