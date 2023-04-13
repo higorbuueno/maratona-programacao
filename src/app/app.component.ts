@@ -73,7 +73,7 @@ export class AppComponent implements OnInit {
 
       // Preciso fazer a validação do tamanho do array pra ele não bugar quando for buscar o tamanho limito (36) + a chave.
       // Caso ele esteja dentro do range, eu subtraio o valor da própria chave mesmo;
-      if (posicaoDoMeuCaracter - this.chaveCesar > 0) {
+      if (posicaoDoMeuCaracter - this.chaveCesar >= 0) {
         arrayResultadoDescripto.push(this.alfanumericoCesar[posicaoDoMeuCaracter - this.chaveCesar]);
       } else {
 
@@ -140,8 +140,8 @@ export class AppComponent implements OnInit {
 
         let indexDoHash = indexDaLetraDoCodigoAtual + indexDaLetraDaFraseAtual;
 
-        if (indexDaLetraDaFraseAtual + 1 > this.tamanhoDoAlfabetoVigenere - 1 || indexDaLetraDoCodigoAtual + 1 > this.tamanhoDoAlfabetoVigenere - 1) {
-          indexDoHash -= this.tamanhoDoAlfabetoVigenere;
+        if (indexDoHash > this.alfabetoVigenere.length) {
+          indexDoHash = indexDoHash - this.alfabetoVigenere.length;
         }
 
         hashFinalEmArray.push(this.alfabetoVigenere[indexDoHash]);
@@ -176,10 +176,6 @@ export class AppComponent implements OnInit {
       BEBE -> 1 4 1 4
       CIER -> 2 8 4 17
           -> 3 12 5 21 -> DMFV
-
-      DMFV -> 3 12 5 21
-      CIER -> 2 8 4 17
-      RESUL -> 1 4 1 4
     */
 
     let hashFinalEmArray: string[] = [];
@@ -190,7 +186,7 @@ export class AppComponent implements OnInit {
       const indexDaLetraDoCodigoAtual = this.alfabetoVigenere.findIndex(letra => letra === codigoPreenchidoAteOFinal[i]);
 
       const indexDaLetraNoAlfabeto = indexDaLetraDoResultadoAtual - indexDaLetraDoCodigoAtual;
-      
+
       hashFinalEmArray.push(this.alfabetoVigenere[indexDaLetraNoAlfabeto])
     }
 
