@@ -120,19 +120,6 @@ export class AppComponent implements OnInit {
       });
 
 
-      /*
-        BEBE -> PALAVRA
-        CIER -> CHAVE
-        -
-        BEBE -> 1 4 1 4
-        CIER -> 2 8 4 17
-            -> 3 12 5 21 -> DMFV
-  
-        DMFV -> 3 12 5 21
-        CIER -> 2 8 4 17
-        RESUL -> 1 4 1 4
-      */
-
       let hashFinalEmArray: string[] = [];
       for (const i in fraseVigenereEmArray) {
         let indexDaLetraDoCodigoAtual = this.alfabetoVigenere.findIndex(letra => letra === codigoPreenchidoAteOFinal[i]);
@@ -140,7 +127,7 @@ export class AppComponent implements OnInit {
 
         let indexDoHash = indexDaLetraDoCodigoAtual + indexDaLetraDaFraseAtual;
 
-        if (indexDoHash > this.alfabetoVigenere.length) {
+        if (indexDoHash > this.alfabetoVigenere.length - 1) {
           indexDoHash = indexDoHash - this.alfabetoVigenere.length;
         }
 
@@ -178,6 +165,8 @@ export class AppComponent implements OnInit {
           -> 3 12 5 21 -> DMFV
     */
 
+
+
     let hashFinalEmArray: string[] = [];
     for (const i in resultadoVignereEmArray) {
 
@@ -185,7 +174,12 @@ export class AppComponent implements OnInit {
 
       const indexDaLetraDoCodigoAtual = this.alfabetoVigenere.findIndex(letra => letra === codigoPreenchidoAteOFinal[i]);
 
-      const indexDaLetraNoAlfabeto = indexDaLetraDoResultadoAtual - indexDaLetraDoCodigoAtual;
+      let indexDaLetraNoAlfabeto = indexDaLetraDoResultadoAtual - indexDaLetraDoCodigoAtual;
+
+      if (indexDaLetraNoAlfabeto < 0) {
+        // indexDoHash = indexDoHash - this.alfabetoVigenere.length;
+        indexDaLetraNoAlfabeto += this.alfabetoVigenere.length;
+      }
 
       hashFinalEmArray.push(this.alfabetoVigenere[indexDaLetraNoAlfabeto])
     }
