@@ -1,4 +1,5 @@
-.maratona-home-wrapper, input {
+.maratona-home-wrapper,
+input {
   font-size: 25px !important;
 }
 
@@ -46,11 +47,11 @@
   background-color: #0e395eec;
   transition: 0.3s;
   border-radius: 15px;
-  /* -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -o-filter: blur(3px);
-    -ms-filter: blur(3px);
-    filter: blur(3px); */
+  -webkit-filter: blur(30px);
+  -moz-filter: blur(30px);
+  -o-filter: blur(30px);
+  -ms-filter: blur(30px);
+  filter: blur(30px);
 }
 
 .card:hover {
@@ -79,7 +80,7 @@
 }
 
 .meu-input::placeholder {
-color: rgba(146, 165, 209, 0.829);
+  color: rgba(146, 165, 209, 0.829);
 }
 
 .chave-cesar {
