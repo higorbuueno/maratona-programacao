@@ -71,6 +71,7 @@
               (focus)="this.vigenereFocus = true"
               (blur)="this.vigenereFocus = false"
               class="meu-input form-control mb-2"
+              mask="U*"
               [(ngModel)]="fraseVigenere"
               placeholder="Frase"
               (input)="this.onChangeFraseVigenere()"
@@ -81,6 +82,7 @@
               <input
                 type="text"
                 [maxlength]="this.tamanhoDaFraseVigenere"
+                mask="U*"
                 (focus)="this.vigenereFocus = true"
                 (blur)="this.vigenereFocus = false"
                 class="meu-input form-control mb-2"
