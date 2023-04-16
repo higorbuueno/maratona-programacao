@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "maratona-mp": {
+    "maratona-programacao": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/maratona-mp",
+            "outputPath": "dist/maratona-programacao",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "maratona-mp:build:production"
+              "browserTarget": "maratona-programacao:build:production"
             },
             "development": {
-              "browserTarget": "maratona-mp:build:development"
+              "browserTarget": "maratona-programacao:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "maratona-mp:build"
+            "browserTarget": "maratona-programacao:build"
           }
         },
         "test": {
@@ -94,6 +94,12 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/maratona-programacao/"
           }
         }
       }

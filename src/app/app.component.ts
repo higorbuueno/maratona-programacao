@@ -119,7 +119,6 @@ export class AppComponent implements OnInit {
         indexParaMapeamento++;
       });
 
-
       let hashFinalEmArray: string[] = [];
       for (const i in fraseVigenereEmArray) {
         let indexDaLetraDoCodigoAtual = this.alfabetoVigenere.findIndex(letra => letra === codigoPreenchidoAteOFinal[i]);
@@ -190,11 +189,13 @@ export class AppComponent implements OnInit {
   onChangeFraseTrilho() {
     // TODO: FAZER A FUNÇÃO E DEFINIR A VARIÁVEL resultadoTrilho com o codificado.
     this.resultadoTrilho = this.fraseTrilho
+    console.log("Nada ainda :(");
   }
 
   onChangeResultadoTrilho() {
     //  Descriptografar o Trilho!
     this.fraseTrilho = this.resultadoTrilho
+    console.log("Nada ainda :(");
   }
 
 
