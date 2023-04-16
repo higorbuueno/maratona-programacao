@@ -1,6 +1,6 @@
 .maratona-home-wrapper,
 input {
-  font-size: 25px !important;
+  /* font-size: 25px !important; */
 }
 
 .meu-card {
@@ -65,7 +65,7 @@ input {
 
 .meu-input {
   color: white;
-  width: 500px;
+  width: 300px;
   background-color: rgba(97, 122, 167, 0.336);
   border: none;
   border: rgb(97, 121, 167) solid 0.5px;
