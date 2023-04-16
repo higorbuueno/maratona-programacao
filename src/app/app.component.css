@@ -3,6 +3,12 @@ input {
   /* font-size: 25px !important; */
 }
 
+.back-arrow {
+  z-index: 999;
+  position: absolute;
+  margin: 15px 20px;
+}
+
 .meu-card {
   height: 90vh;
 }
